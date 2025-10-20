@@ -152,6 +152,18 @@ await this.FeatureBackgroundAsync();
 #line 11
  await testRunner.GivenAsync("I am displayed the products page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
+                global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                            "Item Name"});
+                table1.AddRow(new string[] {
+                            "Sauce Labs Backpack"});
+                table1.AddRow(new string[] {
+                            "Sauce Labs Bolt T-Shirt"});
+#line 12
+ await testRunner.WhenAsync("I add the following items to the cart:", ((string)(null)), table1, "When ");
+#line hidden
+#line 16
+ await testRunner.ThenAsync("the cart should contain 2 items", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
             }
             await this.ScenarioCleanupAsync();
         }
@@ -182,16 +194,16 @@ await this.FeatureBackgroundAsync();
 #line 19
  await testRunner.GivenAsync("I have 2 items in my cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-                global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
                             "First Name",
                             "Last Name",
                             "Postal Code"});
-                table1.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "John",
                             "Doe",
                             "12345"});
 #line 20
- await testRunner.WhenAsync("I proceed to checkout with the following information:", ((string)(null)), table1, "When ");
+ await testRunner.WhenAsync("I proceed to checkout with the following information:", ((string)(null)), table2, "When ");
 #line hidden
 #line 23
  await testRunner.ThenAsync("I should see the order overview page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
