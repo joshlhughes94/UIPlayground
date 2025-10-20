@@ -6,14 +6,13 @@ Background: Successful Login
 	And I have selected the login button
 	Then I am displayed the products page
 
-
 Scenario: Add Multiple Items to Cart
 	Given I am displayed the products page
-	#When I add the following items to the cart:
-	#	| Item Name					|
-	#	| Sauce Labs Backpack		|
-	#	| Sauce Labs Bolt T-Shirt	|
-	#Then the cart should contain 2 items
+	When I add the following items to the cart:
+		| Item Name					|
+		| Sauce Labs Backpack		|
+		| Sauce Labs Bolt T-Shirt	|
+	Then the cart should contain 2 items
 
 Scenario: Checkout Flow
 	Given I have 2 items in my cart

@@ -22,23 +22,24 @@ namespace CoxAutoIncInterviewTests
             _pageService = pageService ?? throw new ArgumentNullException(nameof(pageService));
             _pageDependencyService = pageDependencyService ?? throw new ArgumentNullException(nameof(pageDependencyService));
         }
-
-        private async Task<IBrowser> InitializeBrowser(string browserName)
+        private async Task<IPage> CreateChromePage()
         {
             var playwright = await Playwright.CreateAsync();
-            bool isHeadless = false;
-            return browserName.ToLower() switch
+            var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                "chromium" => await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions { Headless = isHeadless }),
-                "firefox" => await playwright.Firefox.LaunchAsync(new BrowserTypeLaunchOptions { Headless = isHeadless }),
-                "webkit" => await playwright.Webkit.LaunchAsync(new BrowserTypeLaunchOptions { Headless = isHeadless }),
-                _ => throw new ArgumentException($"Browser '{browserName}' is not supported"),
-            };
+                Headless = false, 
+                SlowMo = 100      
+            });
+
+            var page = await browser.NewPageAsync();
+            _pageDependencyService.SetPage(page);
+            return page;
         }
 
         [Given("I have navigated to the Sauce Demo login page")]
         public async Task GivenIHaveNavigatedToTheSauceDemoLoginPage()
         {
+            _page = await CreateChromePage();
             var loginPage = _pageService.LoginPage;
             await loginPage.GoToLoginPage();
         }
@@ -67,5 +68,22 @@ namespace CoxAutoIncInterviewTests
             bool isVisible = await inventoryPage.IsProductsTitleVisible();
             Assert.That(isVisible, Is.True, "Products page title is not visible");
         }
+
+        [When("I add the following items to the cart:")]
+        public async Task WhenIAddTheFollowingItemsToTheCart(Table table)
+        {
+            var inventoryPage = _pageService.InventoryPage;
+            var items = table.Rows.Select(r => r["Item Name"]);
+            await inventoryPage.AddItemsToCart(items);
+        }
+
+        [Then("the cart should contain {int} items")]
+        public async Task ThenTheCartShouldContainItems(int p0)
+        {
+            var inventoryPage = _pageService.InventoryPage;
+            bool isVisible = await inventoryPage.CartDisplaysTwoItems();
+            Assert.That(isVisible, Is.True, "Cart Does Not Display Two Items");
+        }
+
     }
 }
