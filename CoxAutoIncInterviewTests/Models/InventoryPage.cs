@@ -13,6 +13,7 @@ namespace CoxAutoIncInterviewTests.Models
         private readonly IPageDependencyService _pageDependencyService;
         private ILocator _addToCartTShirt => _pageDependencyService.Page.Result.Locator("#add-to-cart-sauce-labs-bolt-t-shirt");
         private ILocator _addToCartBackpack => _pageDependencyService.Page.Result.Locator("#add-to-cart-sauce-labs-backpack");
+        private ILocator _cartIcon => _pageDependencyService.Page.Result.Locator("//*[@data-test='shopping-cart-link']");
 
         public InventoryPage(IPageDependencyService pageDependencyService)
         {
@@ -59,6 +60,11 @@ namespace CoxAutoIncInterviewTests.Models
             var page = await _pageDependencyService.Page;
             var cartBasket = page.Locator("//*[@data-test='shopping-cart-link'][contains(.,'2')]");
             return await cartBasket.IsVisibleAsync();
+        }
+
+        public async Task ClickCartIcon()
+        {
+            await _cartIcon.ClickAsync();
         }
     }
 }

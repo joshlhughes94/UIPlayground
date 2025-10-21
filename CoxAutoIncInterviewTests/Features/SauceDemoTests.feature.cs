@@ -192,7 +192,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 await this.FeatureBackgroundAsync();
 #line hidden
 #line 18
- await testRunner.GivenAsync("I have 2 items in my cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync("I have added a Sauce Labs Backpack to the cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
                 global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
                             "First Name",
@@ -206,7 +206,8 @@ await this.FeatureBackgroundAsync();
  await testRunner.WhenAsync("I proceed to checkout with the following information:", ((string)(null)), table2, "When ");
 #line hidden
 #line 22
- await testRunner.ThenAsync("I should see the order overview page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("I should see \'Sauce Labs Backpack\' and the total price \'$32.39\' on the checkout o" +
+                        "verview page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 23
  await testRunner.WhenAsync("I complete the purchase", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
