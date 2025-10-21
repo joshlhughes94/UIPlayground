@@ -130,5 +130,28 @@ namespace CoxAutoIncInterviewTests
             var checkoutPage = _pageService.CheckoutPage;
             await checkoutPage.CheckCheckoutConfirmationMessageIsDisplayed();
         }
+
+        [When("I have entered invalid credentials")]
+        public async Task WhenIHaveEnteredInvalidCredentials()
+        {
+            var username = _pageDependencyService.AppSettings.Value.InvalidUsername;
+            var password = _pageDependencyService.AppSettings.Value.InvalidPassword;
+            await _pageService.LoginPage.EnterInvalidUsernamePassowrd(username, password);
+        }
+
+        [Then("I am displayed a error message stating username and password do not match")]
+        public async Task ThenIAmDisplayedAErrorMessageStatingUsernameAndPasswordDoNotMatch()
+        {
+            var loginPage = _pageService.LoginPage;
+            await loginPage.IsInvalidUserNamePasswordErrorMessageVisible();
+        }
+
+        [When("I have been redirected to the Inventory Page")]
+        public async Task WhenIHaveBeenRedirectedToTheInventoryPage()
+        {
+            var inventoryPage = _pageService.InventoryPage;
+            bool isOnInventoryPage = await inventoryPage.WaitForInventoryPageAsync();
+            Assert.That(isOnInventoryPage, Is.True, "User was not redirected to the Inventory Page.");
+        }
     }
 }

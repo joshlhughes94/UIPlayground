@@ -1,9 +1,10 @@
-﻿Feature: SauceDemoTests
+﻿Feature: Valid Sauce Demo Tests
 
 Background: Successful Login
 	Given I have navigated to the Sauce Demo login page
 	When I have entered valid credentials
 	And I have selected the login button
+	And I have been redirected to the Inventory Page
 	Then I am displayed the products page
 
 Scenario: Add Multiple Items to Cart

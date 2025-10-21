@@ -18,18 +18,18 @@ namespace CoxAutoIncInterviewTests.Features
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "3.0.0.0")]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::NUnit.Framework.TestFixtureAttribute()]
-    [global::NUnit.Framework.DescriptionAttribute("SauceDemoTests")]
+    [global::NUnit.Framework.DescriptionAttribute("Valid Sauce Demo Tests")]
     [global::NUnit.Framework.FixtureLifeCycleAttribute(global::NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class SauceDemoTestsFeature
+    public partial class ValidSauceDemoTestsFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "SauceDemoTests", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Valid Sauce Demo Tests", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
-#line 1 "SauceDemoTests.feature"
+#line 1 "Valid Sauce Demo Tests.feature"
 #line hidden
         
         [global::NUnit.Framework.OneTimeSetUpAttribute()]
@@ -117,13 +117,16 @@ namespace CoxAutoIncInterviewTests.Features
  await testRunner.AndAsync("I have selected the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 7
+ await testRunner.AndAsync("I have been redirected to the Inventory Page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 8
  await testRunner.ThenAsync("I am displayed the products page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
         }
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/SauceDemoTests.feature.ndjson", 4);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Valid Sauce Demo Tests.feature.ndjson", 4);
         }
         
         [global::NUnit.Framework.TestAttribute()]
@@ -136,7 +139,7 @@ namespace CoxAutoIncInterviewTests.Features
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Add Multiple Items to Cart", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 9
+#line 10
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -149,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 3
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 10
+#line 11
  await testRunner.GivenAsync("I am displayed the products page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
                 global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
@@ -158,10 +161,10 @@ await this.FeatureBackgroundAsync();
                             "Sauce Labs Backpack"});
                 table1.AddRow(new string[] {
                             "Sauce Labs Bolt T-Shirt"});
-#line 11
+#line 12
  await testRunner.WhenAsync("I add the following items to the cart:", ((string)(null)), table1, "When ");
 #line hidden
-#line 15
+#line 16
  await testRunner.ThenAsync("the cart should contain 2 items", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -178,7 +181,7 @@ await this.FeatureBackgroundAsync();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Checkout Flow", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 17
+#line 18
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -191,7 +194,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 3
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 18
+#line 19
  await testRunner.GivenAsync("I have added a Sauce Labs Backpack to the cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
                 global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
@@ -202,17 +205,17 @@ await this.FeatureBackgroundAsync();
                             "John",
                             "Doe",
                             "12345"});
-#line 19
+#line 20
  await testRunner.WhenAsync("I proceed to checkout with the following information:", ((string)(null)), table2, "When ");
 #line hidden
-#line 22
+#line 23
  await testRunner.ThenAsync("I should see \'Sauce Labs Backpack\' and the total price \'$32.39\' on the checkout o" +
                         "verview page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 23
+#line 24
  await testRunner.WhenAsync("I complete the purchase", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 25
  await testRunner.ThenAsync("I should see a confirmation message indicating the order was successful", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
