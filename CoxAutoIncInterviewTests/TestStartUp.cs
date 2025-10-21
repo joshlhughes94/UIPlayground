@@ -12,6 +12,10 @@ using CoxAutoIncInterviewTests.Models;
 using CoxAutoIncInterviewTests.Services;
 using CoxAutoIncInterviewTests.Settings;
 using CoxAutoIncInterviewTests;
+using CoxAutoIncInterviewTests.Helpers;
+using System.Transactions;
+using Io.Cucumber.Messages.Types;
+using System.Runtime.CompilerServices;
 
 namespace TestSiteUITests
 {
@@ -27,6 +31,7 @@ namespace TestSiteUITests
             builder.RegisterPageHandler();
             builder.RegisterPageDependencyService();
             builder.RegisterSteps();
+            builder.RegisterHelper();
         }
 
         private static void RegisterSteps(this ContainerBuilder builder)
@@ -81,6 +86,11 @@ namespace TestSiteUITests
         private static void RegisterPageHandler(this ContainerBuilder builder)
         {
             builder.RegisterType<PagesService>().As<IPageService>().InstancePerLifetimeScope();
+        }
+
+        private static void RegisterHelper(this ContainerBuilder builder)
+        {
+            builder.RegisterType<ScreenshotHelper>().AsSelf().InstancePerDependency();
         }
 
         private static void RegisterPageDependencyService(this ContainerBuilder builder)
