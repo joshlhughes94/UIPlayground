@@ -136,7 +136,7 @@ namespace CoxAutoIncInterviewTests.Features
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Add Multiple Items to Cart", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 10
+#line 9
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -149,7 +149,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 3
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 11
+#line 10
  await testRunner.GivenAsync("I am displayed the products page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
                 global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
@@ -158,10 +158,10 @@ await this.FeatureBackgroundAsync();
                             "Sauce Labs Backpack"});
                 table1.AddRow(new string[] {
                             "Sauce Labs Bolt T-Shirt"});
-#line 12
+#line 11
  await testRunner.WhenAsync("I add the following items to the cart:", ((string)(null)), table1, "When ");
 #line hidden
-#line 16
+#line 15
  await testRunner.ThenAsync("the cart should contain 2 items", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -178,7 +178,7 @@ await this.FeatureBackgroundAsync();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Checkout Flow", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 18
+#line 17
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -191,7 +191,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 3
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 19
+#line 18
  await testRunner.GivenAsync("I have 2 items in my cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
                 global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
@@ -202,16 +202,16 @@ await this.FeatureBackgroundAsync();
                             "John",
                             "Doe",
                             "12345"});
-#line 20
+#line 19
  await testRunner.WhenAsync("I proceed to checkout with the following information:", ((string)(null)), table2, "When ");
 #line hidden
-#line 23
+#line 22
  await testRunner.ThenAsync("I should see the order overview page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 24
+#line 23
  await testRunner.WhenAsync("I complete the purchase", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 25
+#line 24
  await testRunner.ThenAsync("I should see a confirmation message indicating the order was successful", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
