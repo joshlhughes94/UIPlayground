@@ -37,10 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Settings\AppSettings.Test.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

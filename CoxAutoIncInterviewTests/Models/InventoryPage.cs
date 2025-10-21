@@ -66,5 +66,12 @@ namespace CoxAutoIncInterviewTests.Models
         {
             await _cartIcon.ClickAsync();
         }
+        public async Task<bool> WaitForInventoryPageAsync()
+        {
+            var page = await _pageDependencyService.Page;
+            await page.WaitForURLAsync("**/inventory.html", new() { Timeout = 5000 });
+            return page.Url.Contains("/inventory.html", StringComparison.OrdinalIgnoreCase);
+        }
+
     }
 }
