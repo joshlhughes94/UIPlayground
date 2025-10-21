@@ -85,5 +85,50 @@ namespace CoxAutoIncInterviewTests
             Assert.That(isVisible, Is.True, "Cart Does Not Display Two Items");
         }
 
+        [Given("I have added a Sauce Labs Backpack to the cart")]
+        public async Task GivenIHaveAddedASauceLabsBackpackToTheCart()
+        {
+            var inventoryPage = _pageService.InventoryPage;
+            await inventoryPage.AddBackpackToCart();
+        }
+
+        [When("I proceed to checkout with the following information:")]
+        public async Task WhenIProceedToCheckoutWithTheFollowingInformation(Table table)
+        {
+            var inventoryPage = _pageService.InventoryPage;
+            await inventoryPage.ClickCartIcon();
+            var checkoutPage = _pageService.CheckoutPage;
+            var row = table.Rows.First();
+
+            string firstName = row["First Name"];
+            string lastName = row["Last Name"];
+            string postalCode = row["Postal Code"];
+
+            await checkoutPage.ProceedToCheckout(firstName, lastName, postalCode);
+        }
+        
+        [Then("I should see '([^']*)' and the total price '([^']*)' on the checkout overview page")]
+        public async Task ThenIShouldSeeAndTheTotalPriceOnTheCheckoutOverviewPage(string expectedItem, string expectedTotal)
+        {
+            var checkoutPage = _pageService.CheckoutPage;
+            bool isDisplayed = await checkoutPage.IsItemAndTotalDisplayed(expectedItem, expectedTotal);
+
+            Assert.That(isDisplayed, Is.True,
+            $"Expected to see '{expectedItem}' with total '{expectedTotal}', but the values did not match.");
+        }
+
+        [When("I complete the purchase")]
+        public async Task WhenICompleteThePurchase()
+        {
+            var checkoutPage = _pageService.CheckoutPage;
+            await checkoutPage.FinishCheckout();
+        }
+
+        [Then("I should see a confirmation message indicating the order was successful")]
+        public async Task ThenIShouldSeeAConfirmationMessageIndicatingTheOrderWasSuccessful()
+        {
+            var checkoutPage = _pageService.CheckoutPage;
+            await checkoutPage.CheckCheckoutConfirmationMessageIsDisplayed();
+        }
     }
 }

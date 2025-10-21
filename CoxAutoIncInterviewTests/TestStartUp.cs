@@ -75,6 +75,7 @@ namespace TestSiteUITests
         {
             builder.RegisterType<LoginPage>().AsSelf().InstancePerDependency();
             builder.RegisterType<InventoryPage>().AsSelf().InstancePerDependency();
+            builder.RegisterType<CheckoutPage>().AsSelf().InstancePerDependency();
         }
 
         private static void RegisterPageHandler(this ContainerBuilder builder)
