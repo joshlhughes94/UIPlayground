@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoxAutoIncInterviewTests.Settings
+namespace UIPlayground.Settings
 {
     public class AppSettings
     {

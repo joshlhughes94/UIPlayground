@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
-using CoxAutoIncInterviewTests.Services;
+using UIPlayground.Services;
 
-namespace CoxAutoIncInterviewTests.Models
+namespace UIPlayground.Models
 {
     public class CheckoutPage
     {

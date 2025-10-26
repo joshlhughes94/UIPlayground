@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoxAutoIncInterviewTests.Services;
+using UIPlayground.Services;
 using Microsoft.Playwright;
 using Reqnroll;
 
-namespace CoxAutoIncInterviewTests
+namespace UIPlayground
 {
     [Binding]
     public class StepDefinitions
@@ -27,7 +27,7 @@ namespace CoxAutoIncInterviewTests
             var playwright = await Playwright.CreateAsync();
             var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = true, 
+                Headless = false, 
                 SlowMo = 100      
             });
 

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoxAutoIncInterviewTests.Settings;
+using UIPlayground.Settings;
 using Microsoft.Extensions.Options;
 using Microsoft.Playwright;
 using Reqnroll;
 
-namespace CoxAutoIncInterviewTests.Services
+namespace UIPlayground.Services
 {
     public interface IPageDependencyService
     {

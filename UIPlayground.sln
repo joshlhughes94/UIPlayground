@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoxAutoIncInterviewTests", "CoxAutoIncInterviewTests\CoxAutoIncInterviewTests.csproj", "{1543EDB9-20D6-464F-B832-6C7FB4C6A409}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIPlayground", "CoxAutoIncInterviewTests\UIPlayground.csproj", "{1543EDB9-20D6-464F-B832-6C7FB4C6A409}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

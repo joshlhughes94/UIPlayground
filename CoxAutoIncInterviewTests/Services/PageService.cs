@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoxAutoIncInterviewTests.Models;
+using UIPlayground.Models;
 
-namespace CoxAutoIncInterviewTests.Services
+namespace UIPlayground.Services
 {
     public interface IPageService
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoxAutoIncInterviewTests.Services;
+using UIPlayground.Services;
 using Microsoft.Playwright;
 
-namespace CoxAutoIncInterviewTests.Models
+namespace UIPlayground.Models
 {
     public class InventoryPage
     {

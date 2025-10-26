@@ -3,9 +3,9 @@ using Microsoft.Playwright;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using CoxAutoIncInterviewTests.Services;
+using UIPlayground.Services;
 
-namespace CoxAutoIncInterviewTests.Helpers
+namespace UIPlayground.Helpers
 {
     [Binding]
     public class ScreenshotHelper
