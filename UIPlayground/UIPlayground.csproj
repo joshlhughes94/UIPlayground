@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -26,7 +26,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="NUnit3TestAdapter" Version="5.2.0" />
-    <PackageReference Include="Reqnroll" Version="3.1.2" />
+    <PackageReference Include="Reqnroll" Version="3.2.0" />
     <PackageReference Include="Reqnroll.Autofac" Version="3.1.2" />
     <PackageReference Include="Reqnroll.NUnit" Version="3.1.2" />
     <PackageReference Include="Reqnroll.Tools.MsBuild.Generation" Version="3.1.2" />
