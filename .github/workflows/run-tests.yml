@@ -33,15 +33,12 @@ jobs:
 
       # Generate and show inline report
       - name: Generate HTML report in summary
-        if: always()
         uses: phoenix-actions/test-reporting@v2
         with:
           name: UI Test Report
           path: test-results/**/*.trx
           reporter: dotnet-trx
-          show-failures: true
-          show-summary: true
-          show-in-summary: true
+          only-summary: false
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Upload for manual viewing
