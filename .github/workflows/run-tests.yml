@@ -2,9 +2,14 @@ name: Run UI Tests in Docker
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, testreporting ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, master, testreporting ]
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
 
 jobs:
   ui-tests:
@@ -19,16 +24,25 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
-        run: |
-          docker build -t uiplayground .
+        run: docker build -t uiplayground .
 
       - name: Run UI tests in Docker
         run: |
-          docker run --rm \
-            -v ${{ github.workspace }}/test-results:/app/test-results \
-            uiplayground
+          mkdir -p test-results
+          docker run --rm -v ${{ github.workspace }}/test-results:/app/test-results uiplayground
 
-      - name: Upload test results
+      # Generate and show inline report
+      - name: Generate HTML report in summary
+        uses: phoenix-actions/test-reporting@v2
+        with:
+          name: UI Test Report
+          path: test-results/**/*.trx
+          reporter: dotnet-trx
+          only-summary: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload for manual viewing
+      - name: Upload raw test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
