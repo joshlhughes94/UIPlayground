@@ -25,4 +25,4 @@ RUN dotnet publish "UIPlayground.csproj" -c Release -o /app/publish
 WORKDIR "/src/UIPlayground"
 
 # Run tests with detailed console output
-ENTRYPOINT ["dotnet", "test", "UIPlayground.csproj", "--logger", "console;verbosity=detailed"]
+ENTRYPOINT ["dotnet", "test", "--logger:trx;LogFileName=/app/test-results/results.trx"]
